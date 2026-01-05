@@ -1,0 +1,2734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROTDINNAH FOUNDATION - Empowering Lives, Creating Opportunities</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff5e62; /* Red from image */
+            --secondary-color: #ff9966; /* Orange from image */
+            --accent-color: #c77dff; /* Purple from image */
+            --accent-light: #ff9a9e; /* Pink from image */
+            --text-color: #ffffff;
+            --dark-text: #222;
+            --light-text: #fff;
+            --background-color: #000000;
+            --card-bg: #111111;
+            --border-radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: rgba(0, 0, 0, 0.9);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-light);
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .donate-btn {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: var(--light-text);
+            padding: 8px 20px;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .donate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 94, 98, 0.4);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--accent-light);
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('IMG-20260104-WA0028.JPG');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--light-text);
+            margin-top: 70px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            background: linear-gradient(45deg, var(--accent-light), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--secondary-color), var(--accent-light));
+            color: var(--dark-text);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 153, 102, 0.4);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--light-text);
+            border: 2px solid var(--accent-light);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--accent-light);
+            color: var(--dark-text);
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: var(--background-color);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            background: linear-gradient(45deg, var(--accent-light), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background: linear-gradient(45deg, var(--accent-light), var(--secondary-color));
+            bottom: -10px;
+            left: 25%;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #ccc;
+        }
+
+        .about-content {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: var(--accent-light);
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+            color: #ccc;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Executive Director Section */
+        .executive-director {
+            padding: 80px 0;
+            background-color: var(--card-bg);
+        }
+
+        .director-content {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .director-image {
+            flex: 0 0 40%;
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .director-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .director-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .director-info {
+            flex: 1;
+        }
+
+        .director-name {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, var(--accent-light), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .director-title {
+            font-size: 1.3rem;
+            color: var(--secondary-color);
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .director-title::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(45deg, var(--accent-light), var(--secondary-color));
+            bottom: -10px;
+            left: 0;
+        }
+
+        .director-bio {
+            margin-bottom: 25px;
+            color: #ccc;
+            line-height: 1.7;
+        }
+
+        .director-quote {
+            font-style: italic;
+            color: var(--accent-light);
+            margin-bottom: 30px;
+            padding-left: 20px;
+            border-left: 3px solid var(--secondary-color);
+        }
+
+        .director-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .director-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--background-color);
+            color: var(--secondary-color);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .director-social a:hover {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: var(--light-text);
+            transform: translateY(-3px);
+        }
+
+        /* Media Section */
+        .media {
+            padding: 80px 0;
+            background-color: var(--card-bg);
+        }
+
+        .media-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            gap: 20px;
+        }
+
+        .media-tab-btn {
+            background: none;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-color);
+            cursor: pointer;
+            position: relative;
+            transition: color 0.3s ease;
+            border-radius: var(--border-radius);
+        }
+
+        .media-tab-btn.active {
+            color: var(--accent-light);
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .media-tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .media-tab-content.active {
+            display: block;
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--accent-light);
+            margin-bottom: 5px;
+        }
+
+        .gallery-description {
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        /* Articles Section */
+        .articles-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .article-card {
+            background-color: var(--background-color);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .article-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .article-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .article-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .article-card:hover .article-image img {
+            transform: scale(1.1);
+        }
+
+        .article-content {
+            padding: 25px;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        .article-date {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .article-category {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: var(--light-text);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .article-title {
+            font-size: 1.3rem;
+            color: var(--accent-light);
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .article-excerpt {
+            color: #ccc;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .article-link {
+            color: var(--secondary-color);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .article-link i {
+            margin-left: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .article-link:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Programs Section */
+        .programs {
+            padding: 80px 0;
+            background-color: var(--card-bg);
+        }
+
+        .program-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 10px 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-color);
+            cursor: pointer;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .tab-btn.active {
+            color: var(--accent-light);
+        }
+
+        .tab-btn::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(45deg, var(--accent-light), var(--secondary-color));
+            transition: width 0.3s ease;
+        }
+
+        .tab-btn.active::after {
+            width: 100%;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .program-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .program-card {
+            background-color: var(--background-color);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .program-card-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .program-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .program-card:hover .program-card-image img {
+            transform: scale(1.1);
+        }
+
+        .program-card-content {
+            padding: 25px;
+        }
+
+        .program-card-content h3 {
+            font-size: 1.4rem;
+            color: var(--accent-light);
+            margin-bottom: 15px;
+        }
+
+        .program-card-content p {
+            margin-bottom: 20px;
+            color: #ccc;
+        }
+
+        .program-card-link {
+            color: var(--secondary-color);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .program-card-link i {
+            margin-left: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .program-card-link:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Impact Section */
+        .impact {
+            padding: 80px 0;
+            background-color: var(--background-color);
+            color: var(--light-text);
+        }
+
+        .impact .section-title h2 {
+            color: transparent;
+        }
+
+        .impact .section-title h2::after {
+            background: linear-gradient(45deg, var(--accent-light), var(--secondary-color));
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--accent-light), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #ccc;
+        }
+
+        /* Get Involved Section */
+        .get-involved {
+            padding: 80px 0;
+            background-color: var(--card-bg);
+        }
+
+        .involve-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .involve-card {
+            background-color: var(--background-color);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .involve-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .involve-card i {
+            font-size: 3rem;
+            background: linear-gradient(45deg, var(--accent-light), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .involve-card h3 {
+            font-size: 1.5rem;
+            color: var(--accent-light);
+            margin-bottom: 15px;
+        }
+
+        .involve-card p {
+            margin-bottom: 20px;
+            color: #ccc;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 80px 0;
+            background-color: var(--background-color);
+        }
+
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial {
+            text-align: center;
+            padding: 0 20px;
+            display: none;
+        }
+
+        .testimonial.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .testimonial-text {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 30px;
+            line-height: 1.8;
+            color: #ccc;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            font-size: 1.1rem;
+            color: var(--accent-light);
+        }
+
+        .author-info p {
+            color: #aaa;
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #555;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .slider-dot.active {
+            background: linear-gradient(45deg, var(--accent-light), var(--secondary-color));
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background-color: var(--card-bg);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-top: 50px;
+        }
+
+        .contact- {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-right: 20px;
+            margin-top: 5px;
+        }
+
+        .contact-item h3 {
+            font-size: 1.2rem;
+            color: var(--accent-light);
+            margin-bottom: 10px;
+        }
+
+        .contact-item p {
+            color: #ccc;
+        }
+
+        .contact-form {
+            background-color: var(--background-color);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--accent-light);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #333;
+            border-radius: var(--border-radius);
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: var(--light-text);
+            padding: 12px 30px;
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 94, 98, 0.4);
+        }
+
+        /* Partners Section */
+        .partners {
+            padding: 60px 0;
+            background-color: var(--card-bg);
+        }
+
+        .partners-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .partner-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.3s ease;
+            padding: 20px;
+            background-color: var(--background-color);
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            width: 250px;
+            height: 250px;
+            justify-content: center;
+        }
+
+        .partner-logo:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .partner-logo img {
+            max-width: 180px;
+            max-height: 180px;
+            object-fit: contain;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+
+        .partner-name {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--accent-light);
+            margin-top: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--background-color);
+            color: var(--light-text);
+            padding: 50px 0 20px;
+            border-top: 1px solid #222;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--accent-light), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .footer-column p {
+            color: #aaa;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--card-bg);
+            color: var(--light-text);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: linear-gradient(45deg, var(--accent-light), var(--secondary-color));
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #222;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Donation Modal */
+        .donation-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            overflow-y: auto;
+        }
+
+        .donation-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .donation-modal-content {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            animation: slideUp 0.3s ease;
+            margin: 20px 0;
+        }
+
+        .donation-header {
+            padding: 30px;
+            text-align: center;
+            border-bottom: 1px solid #333;
+        }
+
+        .donation-header h2 {
+            font-size: 2rem;
+            background: linear-gradient(45deg, var(--accent-light), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .donation-header p {
+            color: #ccc;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5rem;
+            color: #aaa;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-modal:hover {
+            color: var(--accent-light);
+        }
+
+        .donation-body {
+            padding: 30px;
+        }
+
+        .donation-type {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .donation-type-btn {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #333;
+            background-color: var(--background-color);
+            color: #ccc;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .donation-type-btn.active {
+            border-color: var(--secondary-color);
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: var(--light-text);
+        }
+
+        .custom-amount-section {
+            margin-bottom: 25px;
+        }
+
+        .amount-label {
+            display: block;
+            margin-bottom: 15px;
+            font-weight: 500;
+            color: var(--accent-light);
+            font-size: 1.1rem;
+        }
+
+        .amount-input-wrapper {
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .amount-input-wrapper .currency-symbol {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        .custom-amount-input {
+            width: 100%;
+            padding: 18px 15px 18px 45px;
+            border: 2px solid #333;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            border-radius: var(--border-radius);
+            font-size: 1.3rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .custom-amount-input:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 3px rgba(255, 153, 102, 0.2);
+        }
+
+        .amount-hint {
+            font-size: 0.9rem;
+            color: #aaa;
+            margin-top: 5px;
+        }
+
+        .suggested-amounts {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .suggested-amount {
+            padding: 8px 15px;
+            background-color: var(--background-color);
+            border: 1px solid #444;
+            border-radius: 20px;
+            color: #ccc;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .suggested-amount:hover {
+            border-color: var(--secondary-color);
+            color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .donor-info {
+            margin-bottom: 25px;
+        }
+
+        .donor-info .form-group {
+            margin-bottom: 15px;
+        }
+
+        .donation-footer {
+            padding: 20px 30px;
+            border-top: 1px solid #333;
+            background-color: var(--background-color);
+            border-radius: 0 0 15px 15px;
+        }
+
+        .donation-summary {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .donation-summary span {
+            color: #ccc;
+        }
+
+        .donation-summary strong {
+            color: var(--accent-light);
+            font-size: 1.3rem;
+        }
+
+        .donate-now-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: var(--light-text);
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .donate-now-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 94, 98, 0.4);
+        }
+
+        .donate-now-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .payment-methods {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 15px;
+            justify-content: center;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        .payment-methods i {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+
+            .director-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .director-image {
+                flex: 0 0 100%;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.95);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.5s ease;
+            }
+
+            nav.active {
+                max-height: 500px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .program-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tab-btn {
+                margin-bottom: 10px;
+            }
+
+            .media-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .media-tab-btn {
+                width: 100%;
+                max-width: 200px;
+            }
+
+            .donation-type {
+                flex-direction: column;
+            }
+
+            .suggested-amounts {
+                justify-content: center;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+
+            .articles-container {
+                grid-template-columns: 1fr;
+            }
+
+            .director-name {
+                font-size: 1.8rem;
+            }
+            
+            .partners-container {
+                gap: 20px;
+            }
+            
+            .partner-logo {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .testimonial-text {
+                font-size: 1rem;
+            }
+
+            .custom-amount-input {
+                font-size: 1.1rem;
+            }
+
+            .director-title {
+                font-size: 1.1rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .partners-container {
+                flex-direction: column;
+            }
+            
+            .partner-logo {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="https://z-cdn-media.chatglm.cn/files/df2fed42-549e-4835-8ec9-228ee016e0e5.jpg?auth_key=1866117600-612096bf8b31439788cbcd2db5c76c02-0-e0f6b17be86bd7a82cc625367d4a5cad" alt="ROTDINNAH FOUNDATION Logo">
+                    ROTDINNAH FOUNDATION
+                </div>
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <nav id="mainNav">
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#director">Our Director</a></li>
+                        <li><a href="#programs">Programs</a></li>
+                        <li><a href="#media">Media</a></li>
+                        <li><a href="#impact">Impact</a></li>
+                        <li><a href="#get-involved">Get Involved</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><button class="donate-btn" onclick="openDonationModal()">Donate</button></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Empowering Lives, Creating Opportunities</h1>
+                <p>At ROTDINNAH FOUNDATION, we're dedicated to supporting people with disabilities and empowering women to reach their full potential through education, resources, and community support.</p>
+                <div class="hero-buttons">
+                    <a href="#programs" class="btn btn-primary">Our Programs</a>
+                    <button class="btn btn-outline" onclick="openDonationModal()">Donate Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Us</h2>
+                <p>Learn more about our mission, vision, and story behind ROTDINNAH FOUNDATION</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Our Mission and Vision</h3>
+                    <p>Our Mission is to educate, empower, and safeguard the lives of women and children by providing access to quality education, skill development, and essential healthcare services, fostering a future of dignity and self-reliance.</p>
+                    <p>Founded in 2021, we have worked tirelessly to provide resources, education, and support to thousands of individuals within the country. Our approach is holistic, addressing not just immediate needs but also creating sustainable change.</p>
+                    <p>Our vision is to create a world where every woman and child has the knowledge, resources, and opportunities to thrive, breaking barriers and transforming communities for a better tomorrow.</p>
+                </div>
+                <div class="about-image">
+                    <img src="mission pic.jpg" alt="ROTDINNAH FOUNDATION team working with community">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Executive Director Section -->
+    <section class="executive-director" id="director">
+        <div class="container">
+            <div class="section-title">
+                <h2>Meet Our Executive Director</h2>
+                <p>Leading with compassion, vision, and dedication to our mission</p>
+            </div>
+            <div class="director-content">
+                <div class="director-image">
+                    <img src="IMG-20260102-WA0014.jpg" alt="Susan Rotdi George">
+                </div>
+                <div class="director-info">
+                    <h3 class="director-name">Susan Rotdi George</h3>
+                    <h4 class="director-title">Executive Director</h4>
+                    <p class="director-bio">
+                        Ms. Susan Rotdi George is a development practitioner and retired senior public servant with extensive experience in public administration, social development, and inclusive service delivery in Nigeria.
+                    </p>
+                    <p class="director-bio">
+                        She holds a Bachelor of Science degree in Sociology from Ahmadu Bello University (ABU), Zaria, obtained in 1983. She further strengthened her professional capacity through studies in Catering and Hotel Management at the Bournemouth College of Technology, United Kingdom, equipping her with multidisciplinary skills relevant to organizational management and service excellence.
+                    </p>
+                    <p class="director-bio">
+                        Ms. Rotdi began her professional career in Plateau State as an Assistant Manager with the Plateau Hotel Board, contributing to institutional operations and service standards. She subsequently joined Nigerian Airways as an Operations Officer, where she served for four years, gaining experience in operational coordination and institutional systems before voluntarily exiting the organization.
+                    </p>
+                    <p class="director-bio">
+                        In 2001, she joined the Federal Government of Nigeria, where she served across multiple strategic ministries, including the Ministry of Defence, the Ministry of Women Affairs and Social Development, and the Ministry of Youth and Sports Development. Through these roles, she contributed to policy implementation, programme coordination, and service delivery targeting women, youth, and vulnerable populations. Her cross-ministerial experience strengthened her expertise in governance, social inclusion, and inter-agency collaboration.
+                    </p>
+                    <p class="director-bio">
+                        Following her retirement from public service, Ms. Rotdi established the Rotdinnah Foundation in response to persistent development gaps affecting underserved communities in Nigeria. The Foundation was founded to advance inclusive development, social protection, gender equity, and the empowerment of persons with disabilities, in alignment with national priorities and the United Nations Sustainable Development Goals (SDGs), particularly SDGs 1, 5, 8, 10, and 17.
+                    </p>
+                    <p class="director-bio">
+                        Ms. Susan Rotdi George continues to provide strategic leadership to Rotdinnah Foundation, working in partnership with government institutions, civil society, and development partners to promote equitable access to opportunities and to ensure that marginalized populations are meaningfully included in sustainable development processes.
+                    </p>
+                    <p class="director-quote">
+                        "True empowerment begins when we recognize the inherent dignity and potential in every individual, regardless of their abilities or gender. Our work is not just about providing aid—it's about creating pathways to independence, leadership, and self-determination."
+                    </p>
+                    <div class="director-social">
+                        <a href="https://www.linkedin.com/in/susan-george-1a845933a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://x.com/susanrotdi?t=7GGau0FdUadJRqEcAlUwbA&s=09" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="susandefovored@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Media Section -->
+    <section class="media" id="media">
+        <div class="container">
+            <div class="section-title">
+                <h2>Media & Stories</h2>
+                <p>Explore our gallery and read inspiring stories from our work</p>
+            </div>
+            <div class="media-tabs">
+                <button class="media-tab-btn active" data-tab="gallery">Photo Gallery</button>
+                <button class="media-tab-btn" data-tab="articles">Articles & News</button>
+            </div>
+            
+            <!-- Photo Gallery Tab -->
+            <div class="media-tab-content active" id="gallery">
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="IMG-20251219-WA0015.jpg" alt="Donation drive event">
+                        <div class="gallery-overlay">
+                            <h4 class="gallery-title">Community Donation Drive</h4>
+                            <p class="gallery-description">Annual fundraising event bringing together supporters</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="IMG-20251219-WA0016.jpg" alt="Wheelchair distribution">
+                        <div class="gallery-overlay">
+                            <h4 class="gallery-title">Wheelchair Distribution</h4>
+                            <p class="gallery-description">Providing mobility aids to those in need</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="IMG-20251219-WA0017.jpg" alt="Education program">
+                        <div class="gallery-overlay">
+                            <h4 class="gallery-title">Inclusive Education</h4>
+                            <p class="gallery-description">Children with disabilities in classroom</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="IMG-20251219-WA0018.jpg" alt="Women empowerment workshop">
+                        <div class="gallery-overlay">
+                            <h4 class="gallery-title">Skills Workshop</h4>
+                            <p class="gallery-description">Women learning new vocational skills</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="IMG-20251219-WA0019.jpg" alt="Mobile clinic">
+                        <div class="gallery-overlay">
+                            <h4 class="gallery-title">Mobile Healthcare</h4>
+                            <p class="gallery-description">Medical services reaching remote areas</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="IMG-20251219-WA0021.jpg" alt="Volunteer team">
+                        <div class="gallery-overlay">
+                            <h4 class="gallery-title">Volunteer Training</h4>
+                            <p class="gallery-description">Team preparing for community outreach</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="IMG-20251219-WA0022.jpg" alt="Graduation ceremony">
+                        <div class="gallery-overlay">
+                            <h4 class="gallery-title">Skills Graduation</h4>
+                            <p class="gallery-description">Women completing training program</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="IMG-20251219-WA0023.jpg" alt="Children with disabilities">
+                        <div class="gallery-overlay">
+                            <h4 class="gallery-title">Children's Program</h4>
+                            <p class="gallery-description">Play therapy and development activities</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="IMG-20251219-WA0024.jpg" alt="Small business startup">
+                        <div class="gallery-overlay">
+                            <h4 class="gallery-title">Business Startup</h4>
+                            <p class="gallery-description">Entrepreneur with disability launching shop</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="IMG-20251219-WA0025.jpg" alt="Awareness campaign">
+                        <div class="gallery-overlay">
+                            <h4 class="gallery-title">Awareness Campaign</h4>
+                            <p class="gallery-description">Community education on disability rights</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="1.jpg" alt="Assistive technology">
+                        <div class="gallery-overlay">
+                            <h4 class="gallery-title">Tech Training</h4>
+                            <p class="gallery-description">Learning assistive technologies</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="IMG-20251219-WA0027.jpg" alt="Agricultural project">
+                        <div class="gallery-overlay">
+                            <h4 class="gallery-title">Agricultural Project</h4>
+                            <p class="gallery-description">Women learning sustainable farming</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="2.jpg" alt="Success celebration">
+                        <div class="gallery-overlay">
+                            <h4 class="gallery-title">Success Celebration</h4>
+                            <p class="gallery-description">Honoring program graduates</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="3.jpg" alt="Medical outreach">
+                        <div class="gallery-overlay">
+                            <h4 class="gallery-title">Medical Outreach</h4>
+                            <p class="gallery-description">Free health checkups for community</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="4.jpg" alt="Leadership training">
+                        <div class="gallery-overlay">
+                            <h4 class="gallery-title">Leadership Training</h4>
+                            <p class="gallery-description">Women in management workshop</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="IMG-20251219-WA0036.jpg">
+                        <div class="gallery-overlay">
+                            <h4 class="gallery-title">Adaptive Sports</h4>
+                            <p class="gallery-description">Inclusive sports activities</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="IMG-20251219-WA0048.jpg" alt="Crafts workshop">
+                        <div class="gallery-overlay">
+                            <h4 class="gallery-title">Crafts Workshop</h4>
+                            <p class="gallery-description">Traditional skills training</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="IMG-20251219-WA0052.jpg" alt="Partnership event">
+                        <div class="gallery-overlay">
+                            <h4 class="gallery-title">Partnership Event</h4>
+                            <p class="gallery-description">Collaborating with organizations</p>
+                        </div>
+                    </div>
+                     <div class="gallery-item">
+                        <img src="5.jpg" alt="Leadership training">
+                        <div class="gallery-overlay">
+                            <h4 class="gallery-title">Leadership Training</h4>
+                            <p class="gallery-description">Women in management workshop</p>
+                        </div>
+                    </div>
+                     <div class="gallery-item">
+                        <img src="6.jpg" alt="Leadership training">
+                        <div class="gallery-overlay">
+                            <h4 class="gallery-title">Training</h4>
+                            <p class="gallery-description">Women in management workshop</p>
+                        </div>
+                    </div>
+                     <div class="gallery-item">
+                        <img src="7.jpg" alt="Leadership training">
+                        <div class="gallery-overlay">
+                            <h4 class="gallery-title">Leadership Training</h4>
+                            <p class="gallery-description">Women in management workshop</p>
+                        </div>
+                    </div>
+                     <div class="gallery-item">
+                        <img src="8.jpg" alt="Leadership training">
+                        <div class="gallery-overlay">
+                            <h4 class="gallery-title">Leadership Training</h4>
+                            <p class="gallery-description">Women in management workshop</p>
+                        </div>
+                    </div>
+                     <div class="gallery-item">
+                        <img src="9.jpg" alt="Leadership training">
+                        <div class="gallery-overlay">
+                            <h4 class="gallery-title">Leadership Training</h4>
+                            <p class="gallery-description">Women in management workshop</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Articles & News Tab -->
+            <div class="media-tab-content" id="articles">
+                <div class="articles-container">
+                    <article class="article-card">
+                        <div class="article-image">
+                            <img src="https://picsum.photos/seed/article1/400/200.jpg" alt="Breaking barriers in education">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-date">
+                                    <i class="far fa-calendar"></i> November 15, 2023
+                                </span>
+                                <span class="article-category">Education</span>
+                            </div>
+                            <h3 class="article-title">Breaking Barriers: How Inclusive Education is Transforming Lives</h3>
+                            <p class="article-excerpt">
+                                Our inclusive education program has helped over 500 children with disabilities access quality education in mainstream schools. Learn how we're working with schools to create adaptive learning environments that celebrate diversity and ensure no child is left behind.
+                            </p>
+                            <a href="#" class="article-link">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <div class="article-image">
+                            <img src="https://picsum.photos/seed/article2/400/200.jpg" alt="Women entrepreneurship success">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-date">
+                                    <i class="far fa-calendar"></i> November 10, 2023
+                                </span>
+                                <span class="article-category">Success Stories</span>
+                            </div>
+                            <h3 class="article-title">From Dependence to Independence: Women Entrepreneurs Share Their Journey</h3>
+                            <p class="article-excerpt">
+                                Meet five remarkable women who transformed their lives through our entrepreneurship program. From small tailoring businesses to tech startups, these inspiring stories showcase the power of economic empowerment and determination.
+                            </p>
+                            <a href="#" class="article-link">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <div class="article-image">
+                            <img src="https://picsum.photos/seed/article3/400/200.jpg" alt="Healthcare initiative launch">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-date">
+                                    <i class="far fa-calendar"></i> November 5, 2023
+                                </span>
+                                <span class="article-category">Healthcare</span>
+                            </div>
+                            <h3 class="article-title">Mobile Healthcare Clinics Reach Remote Communities</h3>
+                            <p class="article-excerpt">
+                                Our new fleet of mobile clinics is bringing essential healthcare services to underserved rural areas. This groundbreaking initiative has already provided medical care to over 2,000 people with disabilities who previously had no access to healthcare.
+                            </p>
+                            <a href="#" class="article-link">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <div class="article-image">
+                            <img src="https://picsum.photos/seed/article4/400/200.jpg" alt="Technology empowerment">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-date">
+                                    <i class="far fa-calendar"></i> October 28, 2023
+                                </span>
+                                <span class="article-category">Technology</span>
+                            </div>
+                            <h3 class="article-title">Technology as an Equalizer: Assistive Tech Training Program</h3>
+                            <p class="article-excerpt">
+                                Discover how our assistive technology training is helping people with disabilities unlock new opportunities. From screen readers to adaptive software, we're bridging the digital divide and opening doors to employment and education.
+                            </p>
+                            <a href="#" class="article-link">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <div class="article-image">
+                            <img src="https://picsum.photos/seed/article5/400/200.jpg" alt="Volunteer impact">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-date">
+                                    <i class="far fa-calendar"></i> October 20, 2023
+                                </span>
+                                <span class="article-category">Community</span>
+                            </div>
+                            <h3 class="article-title">The Power of Volunteering: Creating Lasting Change Together</h3>
+                            <p class="article-excerpt">
+                                Our volunteers are the heartbeat of our organization. This feature highlights the incredible impact of our 200+ volunteers, from healthcare professionals to teachers, who dedicate their time and skills to transform lives in their communities.
+                            </p>
+                            <a href="#" class="article-link">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <div class="article-image">
+                            <img src="https://picsum.photos/seed/article6/400/200.jpg" alt="Legal rights advocacy">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-date">
+                                    <i class="far fa-calendar"></i> October 15, 2023
+                                </span>
+                                <span class="article-category">Advocacy</span>
+                            </div>
+                            <h3 class="article-title">Fighting for Rights: Our Legal Advocacy Wins</h3>
+                            <p class="article-excerpt">
+                                Celebrating recent victories in disability rights and gender equality legislation. Our legal advocacy team has been instrumental in shaping policies that protect and empower the most vulnerable members of society.
+                            </p>
+                            <a href="#" class="article-link">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs" id="programs">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Programs</h2>
+                <p>Discover how we're making a difference in the lives of people with disabilities and women</p>
+            </div>
+            <div class="program-tabs">
+                <button class="tab-btn active" data-tab="disability">Disability Support</button>
+                <button class="tab-btn" data-tab="women">Women Empowerment</button>
+            </div>
+            
+            <!-- Disability Support Programs -->
+            <div class="tab-content active" id="disability">
+                <div class="program-cards">
+                    <div class="program-card">
+                        <div class="program-card-image">
+                            <img src="accessible education2.jpg" alt="Education program for people with disabilities">
+                        </div>
+                        <div class="program-card-content">
+                            <h3>Accessible Education</h3>
+                            <p>Education & Youth Inclusion :Many children with disabilities drop out of school due to lack of support. We offer educational support to reduce dropout rates and protect future leaders.
+Programmes:
+a) Back-to-School for All
+School supplies, uniforms, assistive devices
+b) Scholarships for Girls with Disabilities
+c) Inclusive Mentorship Programme
+Pair students with professionals (including deaf mentors)</p>
+                            <a href="#" class="program-card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="program-card">
+                        <div class="program-card-image">
+                            <img src="healthcare2.jpg" alt="Healthcare services for people with disabilities">
+                        </div>
+                        <div class="program-card-content">
+                            <h3>Healthcare Services</h3>
+                            <p>Health, Wellbeing & Assistive Support : Access to healthcare and aids is limited.We offer these programs to improve quality of life fornpersons living with disability. 
+Programmes:
+a) Assistive Devices Drive
+Wheelchairs, crutches, hearing aids
+b) Free Medical Outreach
+Eye checks, mental health counselling, physiotherapy
+c) Menstrual Health for Women with Disabilities
+Dignity kits + education
+ </p>
+                            <a href="#" class="program-card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="program-card">
+                        <div class="program-card-image">
+                            <img src="empowerment.jpg" alt="Employment program for people with disabilities">
+                        </div>
+                        <div class="program-card-content">
+                            <h3>Livelihood & Employment</h3>
+                            <p>Economic Empowerment Skill Development : Poverty has a significant effect on persons living with disability in other for them tonhad dignity in the society  and income Rotdinnah Foundation carries out the following programmes :
+a) Inclusive Skills Academy:   Tailtailoring, digital marketing, bead making, soap production,air freshener production and disinfectant production.
+b) Disability Enterprise Starter Pack
+Training + small grants or equipment (e.g. sewing machines, laptops)
+c) Market Access Days: 
+Help PWDs sell their products at fairs, exhibitions, or online</p>
+                            <a href="#" class="program-card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Women Empowerment Programs -->
+            <div class="tab-content" id="women">
+                <div class="program-cards">
+                    <div class="program-card">
+                        <div class="program-card-image">
+                            <img src="girl education.jpg" alt="Education program for women">
+                        </div>
+                        <div class="program-card-content">
+                            <h3>Girls' Education</h3>
+                            <p>We work to eliminate barriers to education for girls through scholarships, mentorship programs, and advocacy for gender equality in schools.</p>
+                            <a href="#" class="program-card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="program-card">
+                        <div class="program-card-image">
+                            <img src="skill dev..jpg" alt="Skills training for women">
+                        </div>
+                        <div class="program-card-content">
+                            <h3>Skills Development</h3>
+                            <p>Our training programs equip women with valuable skills in technology, entrepreneurship, and leadership to enhance their economic independence.</p>
+                            <a href="#" class="program-card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="program-card">
+                        <div class="program-card-image">
+                            <img src="advocacy.jpg" alt="Women's rights advocacy">
+                        </div>
+                        <div class="program-card-content">
+                            <h3>Legal Rights & Advocacy</h3>
+                            <p>Advocacy, Awareness & Rights : Discrimination remains a major barrier. Rotdinnah Foundation carries out these programmes to ensure there are systemic and attitutional change of behaviour towards persons living with disability. 
+Programmes:
+a)Disability Rights Awareness Campaign
+Community forums, radio talks, school outreach
+b) International Days Activation
+International Women’s Day (Deaf Women)
+c ) International Day of Persons with Disabilities (Dec 3)
+d) Policy Dialogue Sessions
+Engage government agencies & lawmakers
+</p>
+                            <a href="#" class="program-card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="impact" id="impact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Impact</h2>
+                <p>Together, we're creating lasting change in communities</p>
+            </div>
+            <div class="stats-container">
+                <div class="stat-box">
+                    <div class="stat-number" data-target="75">0</div>
+                    <div class="stat-label">People with Disabilities Supported</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number" data-target="50">0</div>
+                    <div class="stat-label">Women Empowered</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number" data-target="4">0</div>
+                    <div class="stat-label"> Reached</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number" data-target="30">0</div>
+                    <div class="stat-label">Volunteers</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Get Involved Section -->
+    <section class="get-involved" id="get-involved">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get Involved</h2>
+                <p>Your support can help us create a more inclusive and equitable world</p>
+            </div>
+            <div class="involve-options">
+                <div class="involve-card">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h3>Make a Donation</h3>
+                    <p>Your financial contribution helps us expand our programs and reach more people in need. Every donation, no matter the size, makes a difference.</p>
+                    <button class="btn btn-primary" onclick="openDonationModal()">Donate Now</button>
+                </div>
+                <div class="involve-card">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>Volunteer</h3>
+                    <p>Join our team of dedicated volunteers and contribute your time and skills to make a direct impact in the lives of those we serve.</p>
+                    <button class="btn btn-primary">Become a Volunteer</button>
+                </div>
+                <div class="involve-card">
+                    <i class="fas fa-bullhorn"></i>
+                    <h3>Spread the Word</h3>
+                    <p>Help us raise awareness about our mission by sharing our work with your network and following us on social media.</p>
+                    <button class="btn btn-primary">Share Our Story</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Stories of Impact</h2>
+                <p>Hear from those whose lives have been changed through our programs</p>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial active">
+                    <p class="testimonial-text">"ROTDINNAH FOUNDATION provided me with a wheelchair and helped me get vocational training. Today, I run my own small business and support my family. They didn't just give me aid; they gave me hope and independence."</p>
+                    <div class="testimonial-author">
+                        <img src="https://picsum.photos/seed/person1/60/60.jpg" alt="John Doe" class="author-image">
+                        <div class="author-info">
+                            <h4>Dauda John</h4>
+                            <p>Program Beneficiary</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"Through the women's empowerment program, I gained leadership skills and confidence. I'm now the head of our local women's cooperative, helping other women achieve economic independence. ROTDINNAH FOUNDATION changed my life trajectory."</p>
+                    <div class="testimonial-author">
+                        <img src="https://picsum.photos/seed/person2/60/60.jpg" alt="Sarah Johnson" class="author-image">
+                        <div class="author-info">
+                            <h4>Esther johnson</h4>
+                            <p>Women's Cooperative Leader</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"As a volunteer, I've witnessed firsthand the transformative work ROTDINNAH FOUNDATION does. The dedication to creating inclusive opportunities for people with disabilities is inspiring. It's been the most rewarding experience of my life."</p>
+                    <div class="testimonial-author">
+                        <img src="https://picsum.photos/seed/person3/60/60.jpg" alt="Michael Chen" class="author-image">
+                        <div class="author-info">
+                            <h4>Yusuf Abubakar</h4>
+                            <p>Volunteer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-controls">
+                <span class="slider-dot active" data-slide="0"></span>
+                <span class="slider-dot" data-slide="1"></span>
+                <span class="slider-dot" data-slide="2"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch with our team to learn more or get involved</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Our Location</h3>
+                            <p>Flat 1B Auditors Quarters, Karu site<br>Abuja, Nigeria</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>Main: +234 (704) 040-7373<br>Hotline: +234 (813) 165-0508</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>rotdinnahfoundation@gmail.com<br>rotdinnahfoundation@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h3>Office Hours</h3>
+                            <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 4:00 PM</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-money"></i>
+                        <div>
+                            <h3>ACCOUNT DETAILS</h3>
+                            <p>NAIRA ACCOUNT: ROTDINNAH FOUNDATION, ZENITH BANK, 1216962597</p>
+                            <P>DOLLAR ACCOUNT: ROTDINNAH FOUNDATION, ZENITH BANK, 5072035060</P>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners" id="partners">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Partners</h2>
+                <p>Rotdinnah Foundation has proudly partnered with the following organisations and institutions in advancing inclusive development and social impact. We remain open and commited to building new strategic partnerships that allign with our mission and values.</p>
+            </div>
+            <div class="partners-container">
+                <div class="partner-logo">
+                    <img src="https://z-cdn-media.chatglm.cn/files/cbee165a-b648-40a1-b43f-648a2fc4d9b6.jpg?auth_key=1867526056-e70e363e729548709ec38924875ddd66-0-dd1f58ca61900db62930548efb4e8d24" alt="ABUJA ASSOCIATION OF THE DEAF">
+                    <h3 class="partner-name">ABUJA ASSOCIATION OF THE DEAF</h3>
+                </div>
+                <div class="partner-logo">
+                    <img src="https://z-cdn-media.chatglm.cn/files/103f909e-4166-4bc6-b20c-251697bec1a8.jpg?auth_key=1867526056-185fd0e299f14a20b1aa8b1c7d8a18a7-0-eba605d727302383727efe8ff47ad4b6" alt="Ability Plus Initiative">
+                    <h3 class="partner-name">Ability Plus Initiative</h3>
+                </div>
+                <div class="partner-logo">
+                    <img src="https://z-cdn-media.chatglm.cn/files/b867d0cd-7750-4044-aaa5-62ca3375a26e.jpg?auth_key=1867526056-e862f281ea7c413a8947a41cacf154dd-0-637d44b00391ed43b98bc3022f75da4a" alt="Lollypop African Design">
+                    <h3 class="partner-name">Lollypop African Design</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>ROTDINNAH FOUNDATION</h3>
+                    <p>Empowering lives and creating opportunities for people with disabilities and women since 2025.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/share/17XKbmJndg/" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/rotdinnah-foundation-908a0a3a2?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#director">Our Director</a></li>
+                        <li><a href="#programs">Our Programs</a></li>
+                        <li><a href="#media">Media</a></li>
+                        <li><a href="#impact">Our Impact</a></li>
+                        <li><a href="#get-involved">Get Involved</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Annual Reports</a></li>
+                        <li><a href="#">Publications</a></li>
+                        <li><a href="#">Media Center</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to receive updates on our work and ways to get involved.</p>
+                    <form id="newsletterForm">
+                        <div class="form-group">
+                            <input type="email" placeholder="Your email address" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ROTDINNAH FOUNDATION. All Rights Reserved.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+                
+                <!-- Admin Access Link -->
+                <div class="admin-access">
+                    <a href="admin.html" class="admin-link">
+                        <i class="fas fa-lock"></i> Admin Access
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Donation Modal -->
+    <div class="donation-modal" id="donationModal">
+        <div class="donation-modal-content">
+            <div class="donation-header">
+                <span class="close-modal" onclick="closeDonationModal()">&times;</span>
+                <h2>Make a Donation</h2>
+                <p>Your generosity helps us continue our mission</p>
+            </div>
+            <div class="donation-body">
+                <div class="donation-type">
+                    <button class="donation-type-btn active" data-type="once">One Time</button>
+                    <button class="donation-type-btn" data-type="monthly">Monthly</button>
+                </div>
+                
+                <div class="custom-amount-section">
+                    <label class="amount-label">Enter Donation Amount</label>
+                    <div class="amount-input-wrapper">
+                        <span class="currency-symbol">₦</span>
+                        <input type="number" 
+                               id="customAmount" 
+                               class="custom-amount-input" 
+                               placeholder="0.00" 
+                               min="100" 
+                               step="100"
+                               autocomplete="off">
+                    </div>
+                    <p class="amount-hint">Minimum donation amount is ₦100</p>
+                    
+                    <div class="suggested-amounts">
+                        <span class="suggested-amount" data-amount="1000">₦1,000</span>
+                        <span class="suggested-amount" data-amount="5000">₦5,000</span>
+                        <span class="suggested-amount" data-amount="10000">₦10,000</span>
+                        <span class="suggested-amount" data-amount="25000">₦25,000</span>
+                        <span class="suggested-amount" data-amount="50000">₦50,000</span>
+                    </div>
+                </div>
+                
+                <div class="donor-info">
+                    <div class="form-group">
+                        <label for="donorName">Full Name <div class="contact-item">
+                        <i class="fas fa-clock"></i></label>
+                        <input type="text" id="donorName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="donorEmail">Email Address</label>
+                        <input type="email" id="donorEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="donorPhone">Phone Number</label>
+                        <input type="tel" id="donorPhone" required>
+                    </div>
+                </div>
+            </div>
+            <div class="donation-footer">
+                <div class="donation-summary">
+                    <span>Total Donation:</span>
+                    <strong id="totalAmount">₦0</strong>
+                </div>
+                <button class="donate-now-btn" id="processDonation" onclick="processPayment()">
+                    <i class="fas fa-lock"></i>
+                    Donate Securely with Paystack
+                </button>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fas fa-mobile-alt"></i>
+                    <span>Bank Transfer & USSD</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            document.getElementById('mainNav').classList.toggle('active');
+            this.querySelector('i').classList.toggle('fa-times');
+            this.querySelector('i').classList.toggle('fa-bars');
+        });
+
+        // Program Tabs
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabId = button.getAttribute('data-tab');
+                
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding content
+                button.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // Media Tabs
+        const mediaTabButtons = document.querySelectorAll('.media-tab-btn');
+        const mediaTabContents = document.querySelectorAll('.media-tab-content');
+
+        mediaTabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabId = button.getAttribute('data-tab');
+                
+                // Remove active class from all buttons and contents
+                mediaTabButtons.forEach(btn => btn.classList.remove('active'));
+                mediaTabContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding content
+                button.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // Testimonial Slider
+        const testimonials = document.querySelectorAll('.testimonial');
+        const dots = document.querySelectorAll('.slider-dot');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            testimonials[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentSlide = index;
+        }
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+            });
+        });
+
+        // Auto-rotate testimonials
+        setInterval(() => {
+            const nextSlide = (currentSlide + 1) % testimonials.length;
+            showSlide(nextSlide);
+        }, 5000);
+
+        // Counter Animation
+        const counters = document.querySelectorAll('.stat-number');
+        const speed = 200;
+        let counted = false;
+
+        function startCounting() {
+            if (counted) return;
+            
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText;
+                    const inc = target / speed;
+                    
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + inc);
+                        setTimeout(updateCount, 1);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                
+                updateCount();
+            });
+            
+            counted = true;
+        }
+
+        // Check if impact section is in viewport
+        window.addEventListener('scroll', () => {
+            const impactSection = document.querySelector('.impact');
+            const sectionPos = impactSection.getBoundingClientRect().top;
+            const screenPos = window.innerHeight / 1.5;
+            
+            if (sectionPos < screenPos && !counted) {
+                startCounting();
+            }
+        });
+
+        // Form Submissions
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Here you would normally send form data to a server
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+
+        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Here you would normally send form data to a server
+            alert('Thank you for subscribing to our newsletter!');
+            this.reset();
+        });
+
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.getElementById('mainNav').classList.remove('active');
+                    document.querySelector('.menu-toggle i').classList.add('fa-bars');
+                    document.querySelector('.menu-toggle i').classList.remove('fa-times');
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.5)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.3)';
+            }
+        });
+
+        // Donation Modal Functions
+        let selectedAmount = 0;
+        let donationType = 'once';
+
+        function openDonationModal() {
+            document.getElementById('donationModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDonationModal() {
+            document.getElementById('donationModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+            resetDonationForm();
+        }
+
+        function resetDonationForm() {
+            selectedAmount = 0;
+            document.getElementById('totalAmount').textContent = '₦0';
+            document.getElementById('customAmount').value = '';
+            document.getElementById('donorName').value = '';
+            document.getElementById('donorEmail').value = '';
+            document.getElementById('donorPhone').value = '';
+            
+            document.querySelectorAll('.donation-type-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector('.donation-type-btn[data-type="once"]').classList.add('active');
+        }
+
+        // Donation Type Selection
+        document.querySelectorAll('.donation-type-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('.donation-type-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                this.classList.add('active');
+                donationType = this.getAttribute('data-type');
+            });
+        });
+
+        // Custom Amount Input with Real-time Update
+        document.getElementById('customAmount').addEventListener('input', function() {
+            selectedAmount = parseInt(this.value) || 0;
+            updateTotalAmount();
+        });
+
+        // Suggested Amount Click Handlers
+        document.querySelectorAll('.suggested-amount').forEach(button => {
+            button.addEventListener('click', function() {
+                const amount = parseInt(this.getAttribute('data-amount'));
+                document.getElementById('customAmount').value = amount;
+                selectedAmount = amount;
+                updateTotalAmount();
+                
+                // Add visual feedback
+                document.querySelectorAll('.suggested-amount').forEach(btn => {
+                    btn.style.borderColor = '#444';
+                    btn.style.color = '#ccc';
+                });
+                this.style.borderColor = 'var(--secondary-color)';
+                this.style.color = 'var(--secondary-color)';
+            });
+        });
+
+        function updateTotalAmount() {
+            const totalElement = document.getElementById('totalAmount');
+            if (selectedAmount > 0) {
+                totalElement.textContent = `₦${selectedAmount.toLocaleString()}`;
+            } else {
+                totalElement.textContent = '₦0';
+            }
+        }
+
+        // Paystack Payment Processing
+        function processPayment() {
+            const donorName = document.getElementById('donorName').value;
+            const donorEmail = document.getElementById('donorEmail').value;
+            const donorPhone = document.getElementById('donorPhone').value;
+            
+            // Validation
+            if (!donorName || !donorEmail || !donorPhone) {
+                alert('Please fill in all donor information fields.');
+                return;
+            }
+            
+            if (selectedAmount < 100) {
+                alert('Minimum donation amount is ₦100.');
+                document.getElementById('customAmount').focus();
+                return;
+            }
+            
+            // Disable button to prevent multiple clicks
+            const processBtn = document.getElementById('processDonation');
+            processBtn.disabled = true;
+            processBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+            
+            // Initialize Paystack
+            const handler = PaystackPop.setup({
+                key: 'pk_live_29f6f65d393e2502f5123ce7b173b07e55d989e6', // Replace with your actual Paystack public key
+                email: donorEmail,
+                amount: selectedAmount * 100, // Paystack expects amount in kobo (multiply by 100)
+                currency: 'NGN',
+                ref: 'RF_' + Math.floor((Math.random() * 1000000000) + 1),
+                metadata: {
+                    custom_fields: [
+                        {
+                            display_name: "Donor Name",
+                            variable_name: "donor_name",
+                            value: donorName
+                        },
+                        {
+                            display_name: "Phone Number",
+                            variable_name: "donor_phone",
+                            value: donorPhone
+                        },
+                        {
+                            display_name: "Donation Type",
+                            variable_name: "donation_type",
+                            value: donationType
+                        }
+                    ]
+                },
+                callback: function(response) {
+                    // Payment successful
+                    processBtn.disabled = false;
+                    processBtn.innerHTML = '<i class="fas fa-lock"></i> Donate Securely with Paystack';
+                    
+                    // Show success message
+                    alert(`Thank you for your generous donation of ₦${selectedAmount.toLocaleString()}! Your payment reference is: ${response.reference}`);
+                    
+                    // Here you would typically:
+                    // 1. Save the transaction details to your database
+                    // 2. Send a confirmation email
+                    // 3. Redirect to a thank you page
+                    
+                    closeDonationModal();
+                    
+                    // You can also verify the transaction on your server
+                    verifyTransaction(response.reference);
+                },
+                onClose: function() {
+                    // Payment modal closed
+                    processBtn.disabled = false;
+                    processBtn.innerHTML = '<i class="fas fa-lock"></i> Donate Securely with Paystack';
+                }
+            });
+            
+            handler.openIframe();
+        }
+
+        // Verify transaction on server (optional but recommended)
+        function verifyTransaction(reference) {
+            // This would typically be an AJAX call to your server
+            // Your server would then verify the transaction with Paystack's API
+            console.log('Verifying transaction:', reference);
+            
+            // Example of what your server-side verification might look like:
+            // GET https://api.paystack.co/transaction/verify/{reference}
+            // Headers: Authorization: Bearer YOUR_SECRET_KEY
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('donationModal');
+            if (event.target === modal) {
+                closeDonationModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeDonationModal();
+            }
+        });
+
+        // Format amount input with commas as user types
+        document.getElementById('customAmount').addEventListener('blur', function() {
+            if (this.value) {
+                this.value = parseInt(this.value).toLocaleString();
+            }
+        });
+
+        document.getElementById('customAmount').addEventListener('focus', function() {
+            // Remove commas when editing
+            this.value = this.value.replace(/,/g, '');
+        });
+    </script>
+</body>
+</html>
